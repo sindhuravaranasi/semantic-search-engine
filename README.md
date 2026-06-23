@@ -7,8 +7,8 @@ that powers RAG systems.
 ## What it does (so far)
 - Calls the Voyage AI embeddings API directly via OkHttp
 - Parses responses with Gson into clean POJOs
-- (Coming) Hand-written cosine similarity (dot product, magnitude — no math libraries)
-- (Coming) In-memory vector store with top-k retrieval
+- Hand-written cosine similarity (dot product, magnitude — no math libraries)
+- In-memory vector store with top-k retrieval
 - (Coming) JSON persistence
 - (Coming) CLI for indexing documents and running searches
 
