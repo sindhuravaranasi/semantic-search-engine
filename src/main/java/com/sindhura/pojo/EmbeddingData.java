@@ -1,7 +1,5 @@
 package com.sindhura.pojo;
 
-import java.util.List;
-
 public class EmbeddingData {
         private String object;
         private float[] embedding;

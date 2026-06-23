@@ -1,0 +1,20 @@
+Implemented a Kafka-based retry queue using Flink to reduce data aggregation errors at 50,000 records per second.
+Built a simulation platform that reduced test run time from 1.5 hours to 30 minutes across 6 engineering teams.
+Designed a self-serve metrics dashboard that saved approximately 15 engineering hours per week.
+Trained for a marathon by running every morning before work for four months.
+The stock market experienced significant volatility following the central bank's interest rate announcement.
+Adopted a golden retriever puppy and spent the weekend puppy-proofing the apartment.
+Designed a distributed system architecture for handling real-time payment risk scoring at scale.
+Took a pottery class on weekends to explore a creative outlet outside of engineering work.
+Migrated a legacy monolith service to a microservices architecture using Kafka as the messaging backbone.
+Read a biography about the history of early 20th century aviation.
+Built a data availability API to give downstream teams visibility into pipeline health.
+Spent the afternoon at the farmers market buying fresh vegetables and flowers.
+Debugged a production incident caused by a race condition in a distributed cache.
+Started learning to play the piano using an online beginner course.
+The city council approved a new budget for public transportation infrastructure.
+Mentored a junior engineer through their first on-call rotation.
+Visited a botanical garden and took photos of rare orchids.
+Wrote a design document proposing a shift from REST to event-driven architecture.
+Baked sourdough bread from scratch for the first time over the weekend.
+Presented a technical proposal to leadership about reducing infrastructure costs.
