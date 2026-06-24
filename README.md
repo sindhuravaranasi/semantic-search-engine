@@ -9,7 +9,7 @@ that powers RAG systems.
 - Parses responses with Gson into clean POJOs
 - Hand-written cosine similarity (dot product, magnitude — no math libraries)
 - In-memory vector store with top-k retrieval
-- (Coming) JSON persistence
+- JSON persistence
 - (Coming) CLI for indexing documents and running searches
 
 ## Setup
