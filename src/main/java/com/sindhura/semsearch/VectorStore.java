@@ -20,6 +20,10 @@ public class VectorStore {
        documents.add(document);
     }
 
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
     public List<ScoredDocument> search(String query, int topK) {
         List<ScoredDocument> scoredDocuments = new ArrayList<>();
         List<float[]> embeddings = client.getEmbedding(List.of(query), "query");

@@ -42,6 +42,10 @@ class EmbeddingClient {
                 .build();
 
         try (var response = httpClient.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                 System.err.println("Voyage API error: " + response.code() + " - " + response.message());
+                throw new RuntimeException("Voyage API returned " + response.code());
+        }
             String responseBody = response.body().string();
             EmbeddingResponse embeddingResponse = gson.fromJson(responseBody, EmbeddingResponse.class);
             for(EmbeddingData data : embeddingResponse.getEmbeddingData()) {

@@ -1,11 +1,9 @@
 package com.sindhura.semsearch;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 
-import com.sindhura.pojo.Document;
 import com.sindhura.pojo.ScoredDocument;
+import com.sindhura.pojo.VectorSnapshot;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
@@ -21,7 +19,9 @@ public class App
         try {
 
             VectorStore store = new VectorStore(client);
-            index(client, store);
+            VectorPersister persister= new VectorPersister(client);
+            VectorSnapshot snapshot = persister.persist();
+            snapshot.getDocuments().forEach(store::add);
             List<ScoredDocument> results = store.search("I love my dog", 5);
             System.out.println("Search Results:");
             for (ScoredDocument scoredDoc : results) {
@@ -29,20 +29,6 @@ public class App
             }
         } catch(Exception e) {
             System.err.println("Error occurred while fetching embeddings: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    public static void index(EmbeddingClient client, VectorStore store) {
-        try {
-            List<String> texts = Files.readAllLines(Path.of("data/documents.txt"));
-            List<float[]> embeddings = client.getEmbedding(texts, "document");
-            for (int i = 0; i < texts.size(); i++) {
-                Document d = new Document(texts.get(i), embeddings.get(i));
-                store.add(d); 
-            }
-        } catch (Exception e) {
-            System.err.println("Error occurred while indexing document: " + e.getMessage());
             e.printStackTrace();
         }
     }
