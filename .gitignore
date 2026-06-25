@@ -1,4 +1,5 @@
 .env
+design_decisions.md
 target/
 .vscode/
 *.class
