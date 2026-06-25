@@ -10,7 +10,7 @@ that powers RAG systems.
 - Hand-written cosine similarity (dot product, magnitude — no math libraries)
 - In-memory vector store with top-k retrieval
 - JSON persistence
-- (Coming) CLI for indexing documents and running searches
+- CLI for indexing documents and running searches
 
 ## Setup
 1. Clone the repo
