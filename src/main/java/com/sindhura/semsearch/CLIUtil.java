@@ -8,7 +8,7 @@ import com.sindhura.pojo.ScoredDocument;
 
 public class CLIUtil {
 
-    public static void interactiveCLI(VectorStore store) {
+    public static void interactiveCLI(DBClient dbClient, EmbeddingClient client) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("> ");
@@ -21,14 +21,16 @@ public class CLIUtil {
                 int lastQuote = input.lastIndexOf("\"");
                 String query = input.substring(firstQuote+1,lastQuote);
                 int k= Integer.parseInt(input.substring(lastQuote + 1).trim());
-                List<ScoredDocument> results = store.search(query, k);
+                List<float[]> embeddings = client.getEmbedding(List.of(query), "query");
+                float[] queryEmbedding = embeddings.get(0);
+                List<ScoredDocument> results = dbClient.searchDocuments(queryEmbedding, k);
                 System.out.println("Search Results:");
                 for (ScoredDocument scoredDoc : results) {
-                    System.out.println("Text: " + scoredDoc.getDocument().getText() + ", Score: " + scoredDoc.getScore());
+                    System.out.println("Text: " + scoredDoc.getText() + ", Score: " + (1-scoredDoc.getScore()));
                 }   
             } else if (command.equals("display")) {
                 // count + first 5 documents
-                List<Document> documents = store.getDocuments();
+                List<Document> documents = dbClient.getDocuments();
                 System.out.println("Total Documents: " + documents.size());
                 System.out.println("First 5 Documents:");
                 for (int i = 0; i < Math.min(5, documents.size()); i++) {

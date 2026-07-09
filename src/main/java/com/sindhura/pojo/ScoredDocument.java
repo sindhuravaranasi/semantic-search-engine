@@ -1,20 +1,20 @@
 package com.sindhura.pojo;
 
 public class ScoredDocument {
-    private Document document;
+    private String text;
     private double score;
 
-    public ScoredDocument(Document document, double score) {
-        this.document = document;
+    public ScoredDocument(String text, double score) {
+        this.text = text;
         this.score = score;
     }
 
-    public Document getDocument() {
-        return document;
+    public String getText() {
+        return text;
     }
 
-    public void setDocument(Document document) {
-        this.document = document;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public double getScore() {

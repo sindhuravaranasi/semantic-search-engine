@@ -27,12 +27,10 @@ public class App
             System.out.println("Connected to Postgres: " + conn.getMetaData().getDatabaseProductVersion());
             DBClient dbClient = new DBClient(conn);
 
-            VectorStore store = new VectorStore(client);
             VectorPersister persister= new VectorPersister(client);
             VectorSnapshot snapshot = persister.persist();
-            snapshot.getDocuments().forEach(store::add);
             snapshot.getDocuments().forEach(dbClient::insertDocument);
-            CLIUtil.interactiveCLI(store);  
+            CLIUtil.interactiveCLI(dbClient, client);  
         } catch(Exception e) {
             System.err.println("Error occurred while fetching embeddings: " + e.getMessage());
             e.printStackTrace();

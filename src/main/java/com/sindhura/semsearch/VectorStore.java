@@ -31,7 +31,7 @@ public class VectorStore {
 
         for (Document document : documents) {
             double score = VectorMath.cosineSimilarity(queryEmbedding, document.getEmbedding());
-            scoredDocuments.add(new ScoredDocument(document, score));
+            scoredDocuments.add(new ScoredDocument(document.getText(), score));
         }
 
         scoredDocuments.sort((d1, d2) -> Double.compare(d2.getScore(), d1.getScore()));
