@@ -9,17 +9,20 @@ that powers RAG systems.
 - Calls the Voyage AI embeddings API directly via OkHttp
 - Parses responses with Gson into clean POJOs
 - Hand-written cosine similarity (dot product, magnitude — no math libraries)
-- In-memory vector store with top-k retrieval
-- JSON persistence
+- In-memory vector store with top-k retrieval (O(n·d))
+- JSON persistence with MD5-based change detection
 - Interactive CLI with `search`, `display`, and `exit` commands
 
-## Week 2- pgvector + chunking (in progress)
+## Week 2- pgvector + chunking (complete)
 - PostgreSQL 17 + pgvector 0.8.4 as the vector storage and search layer
-- Schema: `vector_store` table with `id`, `document_text`, `text`, `document_embedding vector(1024)`
-- JDBC-driven document insertion with `PGvector` type bridging
+- Schema: `vector_store` table with `id SERIAL`, `document_text TEXT UNIQUE`, `text`, `document_embedding vector(1024)`
+- JDBC-driven document insertion with `PGvector` type bridging; `ON CONFLICT DO NOTHING` for idempotent inserts
 - `<=>` cosine distance operator replacing hand-written cosine similarity
-- HNSW index for approximate nearest neighbor search
-- Chunking logic for long documents
+- HNSW index with `vector_cosine_ops` for approximate nearest neighbor search
+- DB-native "skip if already indexed" check (`documentExists()`) — no redundant Voyage API calls
+- `DocumentChunker`: newline-based chunking with header merging and multi-line bullet assembly
+- Unified corpus: 21 test sentences + 41 resume chunks in one `vector_store` table
+- `VectorMath` retained as reference implementation showing the math `<=>` performs internally
 - CLI wired to pgvector pipeline
 -----
 
