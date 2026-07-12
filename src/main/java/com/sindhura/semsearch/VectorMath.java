@@ -1,5 +1,10 @@
 package com.sindhura.semsearch;
 
+/**
+ * Hand-written cosine similarity implementation from Week 1.
+ * No longer called in the active search path (replaced by pgvector's <=> operator),
+ * but retained as a reference implementation showing the math that <=> performs internally.
+ */
 public class VectorMath {
     
     public static double dotProduct(float[] vectorA, float[] vectorB) {

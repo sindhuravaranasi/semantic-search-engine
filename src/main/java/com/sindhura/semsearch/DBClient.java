@@ -90,4 +90,19 @@ class DBClient {
         }
         return documents;
     }
+
+    public boolean documentExists(String documentText) {
+        String sql = "SELECT COUNT(*) FROM vector_store WHERE document_text = ?";
+        try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            preparedStatement.setString(1, documentText);
+            var rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return count > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
