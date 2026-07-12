@@ -51,9 +51,32 @@ CREATE EXTENSION vector;
 ```
 ----
 
+### Source data
+- `data/documents.txt` — one sentence per line, indexed on first run
+- `data/resume.txt` — plain text resume, chunked and indexed on first run
+- Both files are re-read on every startup; only new content triggers a Voyage API call
 
-## Tech
-Java, OkHttp, Gson, Voyage AI embeddings API (`voyage-3.5`)
+---
+
+### CLI commands
+- `search "<query>" <k>` — semantic search, returns top-k results by cosine similarity
+- `display` — shows total document count and first 5 indexed documents
+- `exit` / `quit` — ends the session
+
+---
+
+
+## Tech stack
+- Java 17, Maven
+- OkHttp 4.12.0 — HTTP client for Voyage API
+- Gson 2.10.1 — JSON serialization
+- PostgreSQL 17 + pgvector 0.8.4 — vector storage and HNSW search
+- Voyage AI `voyage-3.5` — 1024-dimensional embeddings
+- PostgreSQL JDBC driver 42.7.3
+- pgvector Java client 0.1.6
+- java-dotenv 5.2.2 — `.env` file loading
+
+---
 
 ## Why no frameworks (Week 1)?
 The point of Week 1 was to understand retrieval mechanics — embeddings, cosine 
