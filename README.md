@@ -18,9 +18,9 @@ that powers RAG systems.
 - Schema: `vector_store` table with `id`, `document_text`, `text`, `document_embedding vector(1024)`
 - JDBC-driven document insertion with `PGvector` type bridging
 - `<=>` cosine distance operator replacing hand-written cosine similarity
-- HNSW index for approximate nearest neighbor search (coming — Day 3)
-- Chunking logic for long documents (coming — Day 4)
-- CLI wired to pgvector pipeline (coming — Day 5)
+- HNSW index for approximate nearest neighbor search
+- Chunking logic for long documents
+- CLI wired to pgvector pipeline
 -----
 
 ## Setup
