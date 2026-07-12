@@ -1,0 +1,58 @@
+SINDHURA VARANASI
+San Jose, CA 95124 • vsindhura29@gmail.com • 513-501-9459 • linkedin.com/in/sindhuravaranasi • github.com/sindhuravaranasi
+
+TECHNICAL SKILLS
+Languages: Java, SQL, JavaScript, TypeScript
+Systems & Backend: Distributed Systems, Multithreading Concepts, REST APIs, Microservices, Event-Driven Architecture
+Data & Storage: Kafka, Apache Flink, Batch & Stream Processing, Data Modeling, MySQL, MongoDB, Elasticsearch
+AI Tools: Cline, Cursor, Claude, GitHub Copilot
+Performance & Reliability: Observability, Performance Debugging, Profiling, Caching, Prometheus, Grafana
+Concepts: Concurrency, System Design, Data Consistency
+Infrastructure: CI/CD, Docker
+Testing: JUnit, Postman, TestNG, Integration Testing
+
+SUMMARY
+Senior Software Engineer with 8+ years of experience designing and operating high-performance distributed systems, data processing platforms, and backend infrastructure powering large-scale production workloads. Expertise in building reliable, performant, and observable services handling high-throughput event streams (50K+ records/sec) and multi-million record processing pipelines. Experienced in system design, concurrency-aware backend development, data storage modeling, and debugging complex production failures across distributed environments. Passionate about building efficient systems that balance performance, scalability, and correctness, with strong collaboration across cross-functional engineering teams to deliver production software at scale.
+
+PROFESSIONAL EXPERIENCE
+
+eBay | Senior Software Engineer — Backend & Platform Feb 2019 – Present
+Simulation & Data Platform — Distributed Systems Architecture
+• Architected and implemented distributed backend services and data processing pipelines executing multi-million record workloads (3–5M records/run), enabling scalable policy evaluation workflows across multiple engineering teams. The
+platform leveraged microservices, REST APIs, database schemas, and batch orchestration to consolidate and process historical transaction records for policy validation workflows across six business teams.
+• Reduced simulation run time from 1.5 hours to 30 minutes (67% reduction), enabling ~60 runs/day across business teams and accelerating time-to-insight for operational decision-making.
+• Established reusable microservice patterns and data pipeline architectures adopted across multiple platform capabilities.
+• Participated in architecture reviews and debugging of complex cross-service production issues involving data consistency, performance bottlenecks, and distributed system failures.
+Self-Serve Metrics Onboarding Tool — Full-Stack Delivery
+• Designed and built an internal full-stack tool (React UI + backend APIs) enabling business owners to independently onboard and configure metrics computed during simulation runs— eliminating engineering dependency for each new use case.
+• Gathered requirements directly from business stakeholders and product; designed data models, REST APIs for metrics onboarding and retrieval, and implemented the complete React UI — reducing time-to-onboard from an engineering ticket to a self-service workflow.
+Data Availability & Parity Initiative — Technical Leadership
+• Designed dependency-aware service APIs coordinating data readiness across distributed upstream systems, improving correctness and reproducibility of large-scale data workflows.
+• Coordinated execution across backend, data platform, and external system teams; translated product reliability requirements into engineering architecture to improve consistency and reliability of data-driven experimentation workflows.
+• Automated validation checks across 3 upstream data dependencies per run, saving ~15 engineering hours/week and replacing 2 engineer-days of manual validation per cycle.
+Historical Data Pipeline Adoption — Cross-Org Execution
+• Coordinated architecture redesign across 4 engineering organizations to enable access to 3 months of historical transaction snapshots, unblocking large-scale data-driven simulation runs.
+• Drove data flow dependency redesign and defined rollout milestones enabling scalable historical dataset access across multiple orgs.
+Flink Streaming Pipeline — Reliability Engineering
+• Designed and implemented a fault-tolerant retry architecture for a high-throughput Apache Flink streaming pipeline processing ~50K records/second, ensuring correctness under downstream database failures where default restart
+strategies were insufficient.
+• Built idempotent retry guarantees and failure isolation mechanisms preventing data loss and improving pipeline resiliency under partial system outages, reducing data parity errors by ~10%.
+Platform Reliability & Observability
+• Diagnosed production latency and connection timeout failures caused by idle resource lifecycles in distributed services; implemented connection warmup and lifecycle management strategies reducing response latency by 60%.
+• Built observability dashboards and monitoring signals enabling faster debugging and performance analysis across services.
+Risk Action Framework (RAF) — Workflow & Event Architecture
+• Designed batch workflows and event ingestion pipelines processing ~50K support referrals per hourly run into Elasticsearch; built observability dashboards ensuring 99.9% service availability.
+• Migrated legacy handlers into modern microservice architecture with full automated test coverage.
+Profiles Platform — Data Pipelines & Search Infrastructure
+• Built fraud scoring pipelines, search indexing, and event publishing architectures supporting risk intelligence workflows, guided onboarding of multiple risk models via architecture reviews.
+
+Signature Consultants (Client: Google, USA) | Software Developer I Apr 2018 – Jan 2019
+• Developed internal web applications improving Google Cloud Platform customer support agent experiences using Java, REST APIs, and state machine design patterns in a high-traffic distributed environment.
+• Wrote JUnit tests, performed API testing with Postman and automation testing with TestNG; participated in code reviews to maintain high code quality.
+
+Tata Consultancy Services, India | Software Engineer Mar 2014 – Jul 2016
+• Built back-end microservices and REST APIs for e-commerce platforms using Java EE (EJB, JMS, JAX-RS, Jersey); contributed to data modeling and service layer architecture.
+
+EDUCATION
+• Master of Engineering, Computer Science — University of Cincinnati, OH | GPA: 3.85/4.0 | Dec 2017
+• Bachelor of Technology, Computer Science — JNTU, Hyderabad, India | GPA: 9.5/10 | May 2013
