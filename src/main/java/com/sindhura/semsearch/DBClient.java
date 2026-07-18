@@ -11,7 +11,7 @@ import com.sindhura.pojo.ScoredDocument;
 import java.sql.Connection;
 import com.pgvector.PGvector;
 
-class DBClient {
+public class DBClient {
 
     private final Connection conn;
 

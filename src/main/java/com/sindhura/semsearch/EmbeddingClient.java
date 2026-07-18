@@ -13,7 +13,7 @@ import okhttp3.RequestBody;
 import java.util.ArrayList;
 import java.util.List;
 
-class EmbeddingClient {
+public class EmbeddingClient {
 
     private final String apiKey;
     private final OkHttpClient httpClient;
