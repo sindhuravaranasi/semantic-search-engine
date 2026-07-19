@@ -40,7 +40,7 @@ public class App
 
             CLIUtil.interactiveCLI(dbClient, client, anthropicClient);  
         } catch(Exception e) {
-            System.err.println("Error occurred while fetching embeddings: " + e.getMessage());
+            System.err.println("Error occurred during startup: " + e.getMessage());
             e.printStackTrace();
         } finally {
             // Close the database connection

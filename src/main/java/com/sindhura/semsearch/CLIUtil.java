@@ -15,7 +15,8 @@ public class CLIUtil {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("> ");
-            String input = scanner.nextLine();
+            try {
+                String input = scanner.nextLine();
             String command = input.split(" ")[0];
 
             if (command.equals("search")) {
@@ -47,14 +48,14 @@ public class CLIUtil {
                 float[] queryEmbedding = embeddings.get(0);
                 int k=5; // number of top chunks to retrieve
                 List<ScoredDocument> results = dbClient.searchDocuments(queryEmbedding, k);
-                List<String> resumeChunks = results.stream()
+                List<String> chunks = results.stream()
                     .map(ScoredDocument::getText)
                     .toList();
                 String system = "You are a helpful assistant answering questions about a candidate's background." + 
                 "Answer only using the context provided below. If the answer is not in the context, say so." +
                 "If the input is not a question, ask the user to rephrase as a question." + 
                 "If there are multiple questions, tell user to ask one question at a time for best results.";
-                String content = ChunkingUtil.promptBuilder(resumeChunks, query);
+                String content = ChunkingUtil.promptBuilder(chunks, query);
 
                 List<Message> messages = List.of(new Message("user", content));
                 String summary = anthropicClient.getSummary(system, messages);
@@ -65,6 +66,12 @@ public class CLIUtil {
             } else {
                 System.out.println("Unrecognized command.");
             }
+            } catch (RuntimeException e) {
+                System.err.println("Usage: search \"<query>\" <k>  |  ask \"<query>\"  |  display  |  exit");
+                System.err.println("Error occurred while processing the query: " + e.getMessage());
+                e.printStackTrace();
+            }
+            
         }
         scanner.close();
     } 
