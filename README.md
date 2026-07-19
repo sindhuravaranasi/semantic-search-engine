@@ -28,9 +28,10 @@ that powers RAG systems.
 ### Week 3 — LLM generation / full RAG (complete ✅)
 - `AnthropicClient`: raw OkHttp calls to `api.anthropic.com/v1/messages` — no SDK
 - `AnthropicRequest`/`AnthropicResponse`/`ContentBlock` POJOs matching confirmed response shape
-- `ask "<query>"` CLI command: embed query → retrieve top-5 chunks via pgvector → build numbered context prompt → call Claude → return synthesized answer
-- System prompt grounds Claude to retrieved context only — verified: correct answers, correct "not in context" responses, no hallucination
-- `ChunkingUtil.insertNewChunks()` handles both `documents.txt` and `resume.txt` at startup
+- `ask "<query>"` CLI command: embed query → retrieve top-5 chunks via pgvector → build numbered context prompt → call Claude → synthesized grounded answer
+- System prompt grounds Claude to retrieved context only — handles missing info, non-questions, multi-part queries
+- Verified: accurate grounded answers, correct "not in context" behavior, multilingual queries work without configuration
+- Known limitation: multi-part questions compete for retrieval slots — ask one question at a time for best results
 - `ANTHROPIC_API_KEY` added to `.env`
 -----
 
