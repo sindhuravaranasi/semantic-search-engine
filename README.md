@@ -24,6 +24,14 @@ that powers RAG systems.
 - Unified corpus: 21 test sentences + 41 resume chunks in one `vector_store` table
 - `VectorMath` retained as reference implementation showing the math `<=>` performs internally
 - CLI wired to pgvector pipeline
+
+### Week 3 — LLM generation / full RAG (complete ✅)
+- `AnthropicClient`: raw OkHttp calls to `api.anthropic.com/v1/messages` — no SDK
+- `AnthropicRequest`/`AnthropicResponse`/`ContentBlock` POJOs matching confirmed response shape
+- `ask "<query>"` CLI command: embed query → retrieve top-5 chunks via pgvector → build numbered context prompt → call Claude → return synthesized answer
+- System prompt grounds Claude to retrieved context only — verified: correct answers, correct "not in context" responses, no hallucination
+- `ChunkingUtil.insertNewChunks()` handles both `documents.txt` and `resume.txt` at startup
+- `ANTHROPIC_API_KEY` added to `.env`
 -----
 
 ## Setup
@@ -59,7 +67,8 @@ CREATE EXTENSION vector;
 ---
 
 ### CLI commands
-- `search "<query>" <k>` — semantic search, returns top-k results by cosine similarity
+- `search "<query>" <k>` — semantic search, returns top-k results with similarity scores
+- `ask "<query>"` — RAG: retrieves top-5 chunks, generates synthesized answer via Claude
 - `display` — shows total document count and first 5 indexed documents
 - `exit` / `quit` — ends the session
 
