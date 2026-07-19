@@ -50,12 +50,15 @@ public class CLIUtil {
                 List<String> resumeChunks = results.stream()
                     .map(ScoredDocument::getText)
                     .toList();
-                String system = "You are a helpful assistant answering questions about a candidate's background. Answer only using the context provided below. If the answer is not in the context, say so.";
+                String system = "You are a helpful assistant answering questions about a candidate's background." + 
+                "Answer only using the context provided below. If the answer is not in the context, say so." +
+                "If the input is not a question, ask the user to rephrase as a question." + 
+                "If there are multiple questions, tell user to ask one question at a time for best results.";
                 String content = ChunkingUtil.promptBuilder(resumeChunks, query);
 
                 List<Message> messages = List.of(new Message("user", content));
                 String summary = anthropicClient.getSummary(system, messages);
-                System.out.println("Summary of the candidate's background: " + summary);
+                System.out.println(summary);
 
             } else if (command.equals("exit") || command.equals("quit")) {
                 break;
